@@ -1,0 +1,20 @@
+
+<section class="py-20 bg-[#f4f0e8]">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-zinc-800">Plano de Engajamento & Ativação</h2>
+      <p class="mt-4 text-lg text-zinc-600 max-w-3xl mx-auto">
+        Uma jornada de um ano com rituais e eventos para construir entusiasmo, pertencimento e uma comunidade vibrante.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for(item of timeline; track item.title) {
+        <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#ffa400] hover:shadow-lg transition-shadow duration-300">
+          <p class="text-sm font-bold text-[#ffa400] mb-2">{{ item.date }}</p>
+          <h3 class="text-xl font-bold text-zinc-800 mb-2">{{ item.title }}</h3>
+          <p class="text-zinc-600">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
