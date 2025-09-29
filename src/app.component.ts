@@ -1,3 +1,4 @@
+
 import { Component, ChangeDetectionStrategy, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VisionComponent } from './components/vision/vision.component';
@@ -11,7 +12,7 @@ import { CreativeAssistantComponent } from './components/creative-assistant/crea
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <div class="flex items-center">
-        <img src="IMG_5430.png" alt="LABirintar & Builders Logo" class="h-10">
+        <img src="https://raw.githubusercontent.com/OperacaoLABirintar/Proposta-Comercial-Builders-B2/main/IMG_5430.png" alt="LABirintar & Builders Logo" class="h-10">
       </div>
     </div>
   </div>
@@ -274,7 +275,7 @@ class PricingComponent {
   <div class="container mx-auto px-6 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
       <div>
-        <img src="IMG_5430.png" alt="LABirintar & Builders Logo" class="h-12">
+        <img src="https://raw.githubusercontent.com/OperacaoLABirintar/Proposta-Comercial-Builders-B2/main/IMG_5430.png" alt="LABirintar & Builders Logo" class="h-12">
       </div>
       <div>
         <h3 class="text-lg font-semibold text-white">Uma Proposta Para</h3>
