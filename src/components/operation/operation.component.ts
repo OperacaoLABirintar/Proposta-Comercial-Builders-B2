@@ -3,7 +3,37 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-operation',
-  templateUrl: './operation.component.html',
+  template: `
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-zinc-800">A Operação: Fluida & com Suporte</h2>
+      <p class="mt-4 text-lg text-zinc-600 max-w-3xl mx-auto">
+        Uma combinação de tecnologia e curadoria humana para uma experiência síncrona.
+      </p>
+    </div>
+
+    <div class="relative wrap overflow-hidden p-10 h-full">
+      <div class="absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+      
+      @for(step of steps; track step.name; let i = $index) {
+        <div class="mb-8 flex justify-between items-center w-full" [class]="i % 2 === 0 ? 'flex-row-reverse left-timeline' : 'right-timeline'">
+          <div class="order-1 w-5/12"></div>
+          <div class="z-20 flex items-center order-1 bg-[#ff595a] shadow-xl w-12 h-12 rounded-full">
+            <h3 class="mx-auto font-semibold text-lg text-white">{{ i + 1 }}</h3>
+          </div>
+          <div class="order-1 bg-[#ff595a]/10 rounded-lg shadow-xl w-5/12 px-6 py-4">
+            <h3 class="mb-3 font-bold text-[#ff595a] text-xl">{{ step.name }}</h3>
+            <p class="text-sm leading-snug tracking-wide text-zinc-700">
+              {{ step.description }}
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule]
 })
