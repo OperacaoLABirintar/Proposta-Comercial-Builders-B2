@@ -11,7 +11,9 @@ HeaderComponent = Component({
 <header class="sticky top-0 z-50 bg-[#f4f0e8]/80 backdrop-blur-md shadow-sm">
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
-      
+      <div class="flex items-center">
+        <img src="https://raw.githubusercontent.com/OperacaoLABirintar/Proposta-Comercial-Builders-B2/main/IMG_5430.png" alt="LABirintar & Builders Logo" class="h-10">
+      </div>
     </div>
   </div>
 </header>
@@ -44,7 +46,7 @@ HeroComponent = Component({
 class ProgramComponent {
   eixos = [
     { name: 'Maker & Tecnologia', color: 'bg-[#e6cbe4]', experiences: [{ title: 'Marcenaria Criativa', description: 'Construa objetos funcionais e artísticos do zero.' },{ title: 'Criação de Jogos (Tabuleiro & Digitais)', description: 'Desenhe, prototipe e teste seus próprios jogos.' },{ title: 'Robótica Sustentável', description: 'Monte e programe robôs para desafios cooperativos.' },{ title: 'Drone Educativo', description: 'Aprenda pilotagem segura, fotografia aérea e circuitos criativos.' },] },
-    { name: 'Arte & Expressão', color: 'bg-[#aec5e7]', experiences: [{ title: 'Fotografia & Narrativas', description: 'Domine a linguagem e técnicas para contar histórias envolventes.' },{ title: 'Improvisação & RPG', description: 'Desenvolva a criatividade e a colaboração através da narração de histórias coletivas.' },{ title: 'Xadrez para a Vida', description: 'Aprenda lógica, estratégia e competências socioemocionais através do jogo.' },] },
+    { name: 'Arte & Expressão', color: 'bg-[#aec5e7]', experiences: [{ title: 'Fotografia & Narrativas', description: 'Domine a linguagem e técnicas para contar histórias envolventes.' },{ title: 'Improvisação & RPG', description: 'Desenvolveva a criatividade e a colaboração através da narração de histórias coletivas.' },{ title: 'Xadrez para a Vida', description: 'Aprenda lógica, estratégia e competências socioemocionais através do jogo.' },] },
     { name: 'Corpo & Cidade', color: 'bg-[#b2dcd5]', experiences: [{ title: 'Circuito Acrobático Circense', description: 'Explore trapézio, slackline, equilíbrio e cooperação física.' },{ title: 'Esportes Urbanos/Coletivos', description: 'Participe de modalidades esportivas inclusivas e colaborativas.' },{ title: 'Projeto CidadeVamos', description: 'Vivencie a cidade como sala de aula através de explorações urbanas educativas.' },] },
     { name: 'Vida & Futuro', color: 'bg-[#ffe9c9]', experiences: [{ title: 'Cozinhas & Infâncias', description: 'Participe de oficinas práticas de culinária e cultura alimentar.' },{ title: 'Empreendedorismo Jovem', description: 'Crie soluções reais, desde pitches até protótipos.' },{ title: 'Olimpíada de Educação Financeira', description: 'Aprenda sobre consumo consciente através de jogos e dinâmicas envolventes.' },] }
   ];
@@ -246,7 +248,10 @@ FooterComponent = Component({
   template: `
 <footer class="bg-zinc-800 text-white">
   <div class="container mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <div>
+        <img src="https://raw.githubusercontent.com/OperacaoLABirintar/Proposta-Comercial-Builders-B2/main/IMG_5430.png" alt="LABirintar & Builders Logo" class="h-12">
+      </div>
       <div>
         <h3 class="text-lg font-semibold text-white">Uma Proposta Para</h3>
         <p class="mt-4 text-zinc-300 font-bold text-lg">Builders School B2</p>
@@ -275,6 +280,7 @@ export class AppComponent {
 AppComponent = Component({
   selector: 'app-root',
   imports: [
+    CommonModule,
     HeaderComponent,
     HeroComponent,
     ProgramComponent,
@@ -288,10 +294,10 @@ AppComponent = Component({
   <app-header />
   <main class="flex-grow">
     <app-hero />
-    <div id="program" class="pt-20 -mt-20"><app-program /></div>
-    <div id="operation" class="pt-20 -mt-20"><app-operation /></div>
-    <div id="engagement" class="pt-20 -mt-20"><app-engagement /></div>
-    <div id="pricing" class="pt-20 -mt-20"><app-pricing /></div>
+    <app-program />
+    <app-operation />
+    <app-engagement />
+    <app-pricing />
   </main>
   <app-footer />
 </div>

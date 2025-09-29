@@ -1,8 +1,7 @@
 
+
 import { Component, ChangeDetectionStrategy, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VisionComponent } from './components/vision/vision.component';
-import { CreativeAssistantComponent } from './components/creative-assistant/creative-assistant.component';
 
 // --- Header Component Definition ---
 @Component({
@@ -305,11 +304,9 @@ class FooterComponent {}
     HeaderComponent,
     HeroComponent,
     ProgramComponent,
-    VisionComponent,
     OperationComponent,
     EngagementComponent,
     PricingComponent,
-    CreativeAssistantComponent,
     FooterComponent
   ],
   template: `
@@ -318,11 +315,9 @@ class FooterComponent {}
   <main class="flex-grow">
     <app-hero />
     <app-program />
-    <app-vision />
     <app-operation />
     <app-engagement />
     <app-pricing />
-    <app-creative-assistant />
   </main>
   <app-footer />
 </div>
