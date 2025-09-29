@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { VisionComponent } from './components/vision/vision.component';
+import { CreativeAssistantComponent } from './components/creative-assistant/creative-assistant.component';
 
 // --- Header Component Definition ---
 @Component({
@@ -8,18 +10,8 @@ import { CommonModule } from '@angular/common';
 <header class="sticky top-0 z-50 bg-[#f4f0e8]/80 backdrop-blur-md shadow-sm">
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <svg class="w-10 h-10 text-[#ffa400]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 15.1362 3.52593 17.9107 5.89849 19.696" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 13.6231 7.77189 15.0646 8.99513 15.992" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M3.33975 7.5L20.6603 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M3.33975 16.5L20.6603 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <span class="text-2xl font-bold tracking-tighter" style="font-family: 'Aglet Slab', serif;">
-          <span class="text-[#ff595a]">LAB</span><span class="text-[#ffa400]">irintar</span>
-        </span>
+      <div class="flex items-center">
+        <img src="IMG_5430.png" alt="LABirintar & Builders Logo" class="h-10">
       </div>
     </div>
   </div>
@@ -116,15 +108,22 @@ interface Eixo {
 class ProgramComponent {
   eixos: Eixo[] = [
     { name: 'Maker & Tecnologia', color: 'bg-[#e6cbe4]', experiences: [{ title: 'Marcenaria Criativa', description: 'Construa objetos funcionais e artísticos do zero.' },{ title: 'Criação de Jogos (Tabuleiro & Digitais)', description: 'Desenhe, prototipe e teste seus próprios jogos.' },{ title: 'Robótica Sustentável', description: 'Monte e programe robôs para desafios cooperativos.' },{ title: 'Drone Educativo', description: 'Aprenda pilotagem segura, fotografia aérea e circuitos criativos.' },] },
-    { name: 'Arte & Expressão', color: 'bg-[#aec5e7]', experiences: [{ title: 'Fotografia & Narrativas', description: 'Domine a linguagem e técnicas para contar histórias envolventes.' },{ title: 'Improvisação & RPG', description: 'Desenvolva a criatividade e a colaboração através da narração de histórias coletivas.' },{ title: 'Xadrez para a Vida', description: 'Aprenda lógica, estratégia e competências socioemocionais através do jogo.' },] },
+    { name: 'Arte & Expressão', color: 'bg-[#aec5e7]', experiences: [{ title: 'Fotografia & Narrativas', description: 'Domine a linguagem e técnicas para contar histórias envolventes.' },{ title: 'Improvisação & RPG', description: 'Desenvolveva a criatividade e a colaboração através da narração de histórias coletivas.' },{ title: 'Xadrez para a Vida', description: 'Aprenda lógica, estratégia e competências socioemocionais através do jogo.' },] },
     { name: 'Corpo & Cidade', color: 'bg-[#b2dcd5]', experiences: [{ title: 'Circuito Acrobático Circense', description: 'Explore trapézio, slackline, equilíbrio e cooperação física.' },{ title: 'Esportes Urbanos/Coletivos', description: 'Participe de modalidades esportivas inclusivas e colaborativas.' },{ title: 'Projeto CidadeVamos', description: 'Vivencie a cidade como sala de aula através de explorações urbanas educativas.' },] },
     { name: 'Vida & Futuro', color: 'bg-[#ffe9c9]', experiences: [{ title: 'Cozinhas & Infâncias', description: 'Participe de oficinas práticas de culinária e cultura alimentar.' },{ title: 'Empreendedorismo Jovem', description: 'Crie soluções reais, desde pitches até protótipos.' },{ title: 'Olimpíada de Educação Financeira', description: 'Aprenda sobre consumo consciente através de jogos e dinâmicas envolventes.' },] }
   ];
   selectedEixo = signal<Eixo>(this.eixos[0]);
-  selectEixo(eixo: Eixo) { this.selectedEixo.set(eixo); }
+
+  selectEixo(eixo: Eixo) {
+    this.selectedEixo.set(eixo);
+  }
 }
 
 // --- Operation Component Definition ---
+interface Step {
+  name: string;
+  description: string;
+}
 @Component({
   selector: 'app-operation',
   imports: [CommonModule],
@@ -158,7 +157,7 @@ class ProgramComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class OperationComponent {
-  steps = [
+  steps: Step[] = [
     { name: 'Onboarding & Configuração', description: 'Configuração colaborativa do programa, horários e integração do ecossistema à escola.' },
     { name: 'Gestão da Plataforma', description: 'Nossa tecnologia cuida das matrículas, splitagem do pagamento, comunicação e inteligência de dados.' },
     { name: 'Rede de Educadores', description: 'Desenvolvemos uma rede de educadores empreendedores, garantindo projetos autorais, engajamento e excelência pedagógica.' },
@@ -167,6 +166,11 @@ class OperationComponent {
 }
 
 // --- Engagement Component Definition ---
+interface TimelineItem {
+  date: string;
+  title: string;
+  description: string;
+}
 @Component({
   selector: 'app-engagement',
   imports: [CommonModule],
@@ -194,7 +198,7 @@ class OperationComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class EngagementComponent {
-  timeline = [
+  timeline: TimelineItem[] = [
     { date: 'Nov 2025', title: 'Evento de Pré-lançamento', description: 'Ação de divulgação e engajamento na escola com estações de experimentação e pré-cadastro online via QR code.' },
     { date: 'Jan-Fev 2026', title: 'Ativação Inicial', description: 'Vídeos curtos com educadores, aulas experimentais abertas e kits de boas-vindas digitais para as famílias.' },
     { date: 'Mar-Abr 2026', title: 'Construção de Comunidade', description: 'Mini-oficinas e demonstrações nos corredores da escola. Mini-torneios (xadrez, robótica, esportes).' },
@@ -205,7 +209,11 @@ class EngagementComponent {
 }
 
 // --- Pricing Component Definition ---
-interface Tier { days: number; hours: number; price: number; }
+interface Tier {
+  days: number;
+  hours: number;
+  price: number;
+}
 @Component({
   selector: 'app-pricing',
   imports: [CommonModule],
@@ -250,10 +258,10 @@ class PricingComponent {
     { days: 1, hours: 1, price: 348 }, { days: 2, hours: 2, price: 626 }, { days: 3, hours: 3, price: 887 },
     { days: 4, hours: 4, price: 1113 }, { days: 5, hours: 5, price: 1392 },
   ];
-  selectedTier = signal<Tier>(this.tiers[0]);
+  selectedTier = signal(this.tiers[0]);
   monthlyPrice = computed(() => this.selectedTier().price);
   selectTier(tier: Tier) { this.selectedTier.set(tier); }
-  formatCurrency(value: number): string {
+  formatCurrency(value: number) {
     return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
   }
 }
@@ -264,21 +272,9 @@ class PricingComponent {
   template: `
 <footer class="bg-zinc-800 text-white">
   <div class="container mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
       <div>
-        <div class="flex items-center space-x-2">
-           <svg class="w-10 h-10 text-[#ffa400]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 15.1362 3.52593 17.9107 5.89849 19.696" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-             <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 13.6231 7.77189 15.0646 8.99513 15.992" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-             <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-             <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-             <path d="M3.33975 7.5L20.6603 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-             <path d="M3.33975 16.5L20.6603 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-           </svg>
-          <span class="text-2xl font-bold tracking-tighter" style="font-family: 'Aglet Slab', serif;">
-            <span class="text-[#ff595a]">LAB</span><span class="text-[#ffa400]">irintar</span>
-          </span>
-        </div>
+        <img src="IMG_5430.png" alt="LABirintar & Builders Logo" class="h-12">
       </div>
       <div>
         <h3 class="text-lg font-semibold text-white">Uma Proposta Para</h3>
@@ -292,7 +288,7 @@ class PricingComponent {
       </div>
     </div>
     <div class="mt-12 border-t border-zinc-700 pt-8 text-center text-zinc-500">
-      <p>&copy; 2025 LABirintar. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Todos os direitos reservados.</p>
     </div>
   </div>
 </footer>
@@ -301,7 +297,6 @@ class PricingComponent {
 })
 class FooterComponent {}
 
-
 // --- Main Application Component ---
 @Component({
   selector: 'app-root',
@@ -309,9 +304,11 @@ class FooterComponent {}
     HeaderComponent,
     HeroComponent,
     ProgramComponent,
+    VisionComponent,
     OperationComponent,
     EngagementComponent,
     PricingComponent,
+    CreativeAssistantComponent,
     FooterComponent
   ],
   template: `
@@ -319,10 +316,12 @@ class FooterComponent {}
   <app-header />
   <main class="flex-grow">
     <app-hero />
-    <div id="program" class="pt-20 -mt-20"><app-program /></div>
-    <div id="operation" class="pt-20 -mt-20"><app-operation /></div>
-    <div id="engagement" class="pt-20 -mt-20"><app-engagement /></div>
-    <div id="pricing" class="pt-20 -mt-20"><app-pricing /></div>
+    <app-program />
+    <app-vision />
+    <app-operation />
+    <app-engagement />
+    <app-pricing />
+    <app-creative-assistant />
   </main>
   <app-footer />
 </div>
