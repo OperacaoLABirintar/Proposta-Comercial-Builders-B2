@@ -1,5 +1,5 @@
-
 import { Component, computed, signal, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface Tier {
   days: number;
@@ -11,6 +11,7 @@ interface Tier {
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule]
 })
 export class PricingComponent {
   tiers: Tier[] = [

@@ -5,6 +5,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-vision',
   templateUrl: './vision.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class VisionComponent {
   visionPoints = [

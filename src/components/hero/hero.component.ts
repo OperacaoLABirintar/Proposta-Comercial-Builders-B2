@@ -5,5 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class HeroComponent {}

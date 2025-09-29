@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-engagement',
   templateUrl: './engagement.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule]
 })
 export class EngagementComponent {
   timeline = [

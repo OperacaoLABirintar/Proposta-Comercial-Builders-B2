@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-operation',
   templateUrl: './operation.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule]
 })
 export class OperationComponent {
   steps = [

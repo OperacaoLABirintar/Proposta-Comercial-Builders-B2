@@ -5,5 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class FooterComponent {}

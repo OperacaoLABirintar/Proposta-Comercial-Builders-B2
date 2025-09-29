@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface Experience {
   title: string;
@@ -15,6 +16,7 @@ interface Eixo {
   selector: 'app-program',
   templateUrl: './program.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule]
 })
 export class ProgramComponent {
   eixos: Eixo[] = [
